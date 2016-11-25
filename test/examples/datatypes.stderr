@@ -1,0 +1,28 @@
+ RULE:  aPoint  { (x'?: aNumber ;(y'?: aNumber ; true )) } 'point NAMESPACE: '?( x'? y'?)
+ RULE:  aLine  { (p'?: aPoint ;(q'?: aPoint ; true )) } 'line NAMESPACE: '?( p'? q'?)
+ RULE: ( horiz l'line) { (l.p.y'?=l.q.y'?) } NAMESPACE: '?( l'line( p'?( y'?) q'?( y'?)))
+ RULE:  main  { (t'?: aLine ;( horiz t'?)) } NAMESPACE: '?( t'?)
+
+
+MATCH:  RULE:  main  { (t'?: aLine ;( horiz t'?)) } NAMESPACE: '?( t'?)
+  REWRITE: '?: main  ==> (.t'?: aLine ;( horiz .t'?))
+  SUBJECT: (.t'?: aLine ;( horiz .t'?))
+
+MATCH:  RULE:  aLine  { (p'?: aPoint ;(q'?: aPoint ; true )) } 'line NAMESPACE: '?( p'? q'?)
+  REWRITE: .t'?: aLine  ==> (.t.p'?: aPoint ;(.t.q'?: aPoint ; true ))
+  SUBJECT: ((.t.p'?: aPoint ;(.t.q'?: aPoint ; true ));( horiz .t'line))
+
+MATCH:  RULE:  aPoint  { (x'?: aNumber ;(y'?: aNumber ; true )) } 'point NAMESPACE: '?( x'? y'?)
+  REWRITE: .t.p'?: aPoint  ==> (.t.p.x'?: aNumber ;(.t.p.y'?: aNumber ; true ))
+  SUBJECT: ((.t.p.x'?: aNumber ;(.t.p.y'?: aNumber ; true ));((.t.q'?: aPoint ; true );( horiz .t'line)))
+
+MATCH:  RULE:  aPoint  { (x'?: aNumber ;(y'?: aNumber ; true )) } 'point NAMESPACE: '?( x'?=.t.p.x'numvar y'?=.t.p.y'numvar)
+  REWRITE: .t.q'?: aPoint  ==> (.t.q.x'?: aNumber ;(.t.q.y'?: aNumber ; true ))
+  SUBJECT: ((.t.q.x'?: aNumber ;(.t.q.y'?: aNumber ; true ));( true ;( horiz .t'line)))
+
+MATCH:  RULE: ( horiz l'line) { (l.p.y'?=l.q.y'?) } NAMESPACE: '?( l'line=.t'line( p'?( y'?) q'?( y'?)))
+  REWRITE: ( horiz .t'line) ==> (.t.p.y'numvar=.t.q.y'numvar)
+  SUBJECT: (.t.p.y'numvar=.t.q.y'numvar)
+
+global name space is:  ( t'line( p'point( x'numvar y'numvar) q'point( x'numvar y'numvar)))
+final expression is: (((1**.t.p.y'numvar)++0)=((1**.t.q.y'numvar)++0))

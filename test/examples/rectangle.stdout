@@ -1,0 +1,6 @@
+null graphics device is open
+draw line from (0.5,2.5) to (3.5,2.5)
+draw line from (3.5,0.5) to (0.5,0.5)
+draw line from (0.5,0.5) to (0.5,2.5)
+draw line from (3.5,2.5) to (3.5,0.5)
+close graphics device

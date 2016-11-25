@@ -1,0 +1,9 @@
+ RULE:  main  { (p'?: aNumber ;(q'?: aNumber ;((p'?=(((3*q'?)-(1*p'?))-5));((4=(q'?+2));(p'?,q'?))))) } NAMESPACE: '?( p'? q'?)
+
+
+MATCH:  RULE:  main  { (p'?: aNumber ;(q'?: aNumber ;((p'?=(((3*q'?)-(1*p'?))-5));((4=(q'?+2));(p'?,q'?))))) } NAMESPACE: '?( p'? q'?)
+  REWRITE: '?: main  ==> (.p'?: aNumber ;(.q'?: aNumber ;((.p'?=(((3*.q'?)-(1*.p'?))-5));((4=(.q'?+2));(.p'?,.q'?)))))
+  SUBJECT: (.p'?: aNumber ;(.q'?: aNumber ;((.p'?=(((3*.q'?)-(1*.p'?))-5));((4=(.q'?+2));(.p'?,.q'?)))))
+
+global name space is:  ( p'numvar=(((-1)/(1+(-1*-1)))*(0+(-1*(-5+((3**.q'numvar)++0))))) q'numvar=(((-1)/(-1*1))*(4+(-1*(2+0)))))
+final expression is: (0.5,2)
