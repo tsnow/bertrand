@@ -5,7 +5,7 @@
 #type 'line
 #operator horiz prefix
 
-#trace		.. turn debugging on
+#trace .. turn debugging on
 
 aPoint { x: aNumber ; y: aNumber; true } 'point
 aLine { p: aPoint ; q: aPoint; true } 'line

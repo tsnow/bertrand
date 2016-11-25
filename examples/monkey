@@ -30,11 +30,11 @@
 #op in_ounce_inches postfix 700
 
 make_object {
-	weight: aNumber;
-	length: aNumber;
-	age: aNumber;
-	linear_density: aNumber;
-	linear_density = weight / length
+weight: aNumber;
+length: aNumber;
+age: aNumber;
+linear_density: aNumber;
+linear_density = weight / length
 }
 
 x in_ounces { x }
@@ -46,19 +46,19 @@ x in_pound_feet { x * 0.75 }
 x in_ounce_inches { x }
 
 main {
-	rope: make_object;
-	banana: make_object;
-	monkey: make_object;
-	mother: make_object;
-	weight: make_object;
-	
-	rope.linear_density in_pound_feet = 1/3;
-	banana.linear_density in_ounce_inches = 2;
-	weight.weight = monkey.weight;
-	rope.length in_feet = monkey.age in_years;
-	monkey.weight in_ounces = mother.age in_years;
-	monkey.age in_years + mother.age in_years = 30;
-	monkey.weight in_pounds / 2 + banana.weight in_pounds = (weight.weight in_pounds + rope.weight in_pounds) / 4;
-	mother.age in_years = 1/2 * 3 * 1/2 * 4 * 2 * 1/3 * 3 * 1/4 * monkey.age;
-	banana.length
+rope: make_object;
+banana: make_object;
+monkey: make_object;
+mother: make_object;
+weight: make_object;
+
+rope.linear_density in_pound_feet = 1/3;
+banana.linear_density in_ounce_inches = 2;
+weight.weight = monkey.weight;
+rope.length in_feet = monkey.age in_years;
+monkey.weight in_ounces = mother.age in_years;
+monkey.age in_years + mother.age in_years = 30;
+monkey.weight in_pounds / 2 + banana.weight in_pounds = (weight.weight in_pounds + rope.weight in_pounds) / 4;
+mother.age in_years = 1/2 * 3 * 1/2 * 4 * 2 * 1/3 * 3 * 1/4 * monkey.age;
+banana.length
 }

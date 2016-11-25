@@ -1,11 +1,11 @@
 /*********************************************************
- *
- * Null graphics routines.
- *
- * If you do not have the capabilities for graphics output
- * you can use these routines to supply null stubs.
- *
- *********************************************************/
+*
+* Null graphics routines.
+*
+* If you do not have the capabilities for graphics output
+* you can use these routines to supply null stubs.
+*
+*********************************************************/
 
 #include "def.h"
 
@@ -22,7 +22,7 @@ graphics = TRUE;
 
 /* Assume numbers in Bertrand are in inches */
 /* If other units are desired, simply use a different constant */
-#define INCHES 100	/* resolution of the screen, in pixels per inch */
+#define INCHES 100 /* resolution of the screen, in pixels per inch */
 
 /* draw a line between two points */
 void

@@ -1,8 +1,20 @@
 #include bag
 
+#op if 240 prefix
+#op then 250 left
+#op else 250 left
+
+if a then b else c { a -> b; ~a -> c }
+
+.. if width > 100 then cutwidth = 50 else cutwidth = width / 2;
+
+.. false ; a { "overconstrained object, error!" ; a }
+
+.. #trace
+
 main {
 
-width = 2;
+width = 3;
 height = 2;
 
 ... declare numbers
@@ -11,11 +23,6 @@ height: aNumber;
 
 ... declare lines
 left: aLine; right: aLine; bottom: aLine; top: aLine;
-
-... center
-center: aPoint;
-center.x = (bottom.begin.x + bottom.end.x) / 2;
-center.y = (left.begin.y + left.end.y) / 2;
 
 ... set origin of object
 left.begin.x = 0.5; left.begin.y = 0.5;
@@ -28,7 +35,6 @@ widthof bottom = -width;
 heightof left = height;
 ... draw commands
 top! ; bottom! ; left! ; right! ;
-("hello", center.x, center.y) ! ;
 
 true
 }
