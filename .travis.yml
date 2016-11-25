@@ -1,6 +1,7 @@
 language: c
 install: 
-  - make
+  - cd src;
+  - make && mv bert ../
 script:
   - ./test/run.sh
   - git diff
