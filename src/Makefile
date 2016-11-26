@@ -21,7 +21,7 @@ OBJS = expr.o names.o ops.o parse.o prep.o rules.o primitive.o\
  scanner.o main.o util.o match.o
 
 bert: $(OBJS) $(GRAPHOBJ)
-	gcc -lm $(OPT) -o bert $(OBJS) $(GRAPHOBJ) $(GRAPHLIB)
+	gcc  $(OPT) -o bert $(OBJS) $(GRAPHOBJ) $(GRAPHLIB) -lm
 
 graphicsnull.o: graphicsnull.c
 	gcc $(CFLAGS) -c graphicsnull.c
